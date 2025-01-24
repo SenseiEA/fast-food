@@ -3,7 +3,6 @@ import { RouteRecordRaw } from "vue-router";
 import LoginPage from "@/views/LoginPage.vue";
 import FolderPage from "@/views/FolderPage.vue";
 import ItemPage from "@/views/ItemPage.vue";
-import Modal from "@/views/Modal.vue";
 import Checkout from "@/views/Checkout.vue";
 
 const routes: Array<RouteRecordRaw> = [
@@ -25,11 +24,8 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: "/item",
+    name: "ItemPage",
     component: ItemPage,
-  },
-  {
-    path: "/modal-success",
-    component: Modal,
   },
   {
     path: "/checkout",

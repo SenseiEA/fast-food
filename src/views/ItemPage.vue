@@ -37,7 +37,9 @@
         </ion-select-option>
       </ion-select>
     </div>
-
+    <ion-chip>Default</ion-chip>
+    <ion-chip :disabled="true">Disabled</ion-chip>
+    <ion-chip :outline="true">Outline</ion-chip>
     <div class="addons-section">
       <h3>Add-Ons</h3>
       <ion-chip
@@ -50,13 +52,30 @@
       </ion-chip>
     </div>
 
-    <ion-button expand="block" @click="addToBag" class="add-to-bag-btn">
-      Add to Bag
-    </ion-button>
+    <ion-button expand="block" @click="setOpen(true)"> Add to Bag </ion-button>
+    <ion-modal :is-open="isOpen">
+      <div class="success-modal">
+        <h2>Successfully added!</h2>
+        <p>What do you want to do now?</p>
+        <ion-button expand="block" color="danger" @click="proceedToCheckout">
+          Proceed to Checkout
+        </ion-button>
+        <ion-button expand="block" color="light" @click="addMore">
+          <span class="red-text">Add more</span>
+        </ion-button>
+      </div>
+    </ion-modal>
   </div>
 </template>
 
 <script setup lang="ts">
+import {
+  IonButton,
+  IonSelect,
+  IonSelectOption,
+  IonChip,
+  IonModal,
+} from "@ionic/vue";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 
@@ -90,27 +109,27 @@ const toggleAddOn = (addon: string) => {
   }
 };
 
-const addToBag = () => {
-  // Simulate adding item to the bag
-  console.log("Added to Bag:", {
-    item: item.value,
-    quantity: quantity.value,
-    beverage: selectedBeverage.value,
-    addOns: selectedAddOns.value,
-  });
-
-  showModal();
-};
+const isOpen = ref(false);
+const setOpen = (open: boolean) => (isOpen.value = open);
 
 const goBack = () => router.back();
-const showModal = () => {
-  router.push("/modal-success");
+
+const proceedToCheckout = () => {
+  setOpen(false);
+  router.push("/checkout");
+};
+
+const addMore = () => {
+  setOpen(false);
+  router.push("/folder/Menu");
 };
 </script>
 
 <style scoped>
 .item-page {
   padding: 16px;
+  background-color: white;
+  color: black;
 }
 
 .header {
@@ -122,6 +141,16 @@ const showModal = () => {
 
 .item-details {
   text-align: center;
+  flex-direction: column;
+}
+
+.success-modal {
+  text-align: center;
+  padding: 16px;
+}
+
+.red-text {
+  color: #e63946;
 }
 
 .item-image {
@@ -149,6 +178,7 @@ const showModal = () => {
 .beverages-section,
 .addons-section {
   margin-bottom: 16px;
+  color: black;
 }
 
 .add-to-bag-btn {

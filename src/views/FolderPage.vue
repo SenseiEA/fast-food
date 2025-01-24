@@ -7,14 +7,14 @@
           <ion-menu-button color="danger"></ion-menu-button>
         </ion-buttons>
           <ion-title>
-            <img src="/public/crown.png" id="food-pro"></img>
+            <img src="/crown.png" id="food-pro"></img>
             {{ points }} Points</ion-title>
           
           <ion-buttons slot="end">            
             <ion-avatar>
                 <img
                   alt="Chou Tzuyu"
-                  src="/public/chou-tzuyu.png"
+                  src="/chou-tzuyu.png"
                 />
             </ion-avatar>
           </ion-buttons>
@@ -55,10 +55,10 @@
       <h3>Special Offers! <span class="view-all">View All</span></h3>
       <ion-slides pager="true" class="special-offers-slider">
         <ion-slide>
-          <img src="/public/offer1.jpeg" alt="Offer 1" />
+          <img src="/offer1.jpeg" alt="Offer 1" />
         </ion-slide>
         <ion-slide>
-          <img src="/public/offer2.webp" alt="Offer 2" />
+          <img src="/offer2.webp" alt="Offer 2" />
         </ion-slide>
       </ion-slides>
     </div>
@@ -67,11 +67,11 @@
       <h3>What's New?</h3>
       <div class="category-grid">
         <div class="category-card">
-          <img src="/public/chicken.jpg" alt="Chicken" />
+          <img src="/chicken.jpg" alt="Chicken" />
           <div class="category-label">Chicken<br />9 Recipes</div>
         </div>
         <div class="category-card">
-          <img src="/public/burger.png" alt="Burger" />
+          <img src="/burger.png" alt="Burger" />
           <div class="category-label">Burger<br />5 Recipes</div>
         </div>
       </div>
@@ -123,7 +123,7 @@
               class="food-item"
               v-for="(item, index) in filteredItems"
               :key="index"
-              @click="() => router.push('/item')"
+               @click="navigateToItem"
             >
               <img :src="item.image" :alt="item.name" class="food-image" />
               <h3 class="food-title">{{ item.name }}</h3>
@@ -136,22 +136,6 @@
           </div>
       </div>
       </template>
-      <template v-else>
-        <div id="container">
-        <strong class="capitalize">{{ titlePage }}</strong>
-        <p>
-          Explore
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://ionicframework.com/docs/components"
-            >UI Components</a
-          >
-        </p>
-      </div>
-      </template>
-
-
     </ion-content>
   </ion-page>
 </template> 
@@ -208,6 +192,12 @@ const filteredItems = computed(() => {
 
 const selectCategory = (category: string) => {
   selectedCategory.value = category;
+};
+
+const navigateToItem = () => {
+  router.push("/item").then(() => {
+    location.reload(); // Reload the page after navigation
+  });
 };
 
 </script>

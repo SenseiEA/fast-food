@@ -62,8 +62,6 @@
           </ion-card-content>
         </ion-card>
       </div>
-
-      <!-- Payment Options -->
       <div class="payment-options">
         <h4>Payment Option</h4>
         <ion-list>
@@ -87,16 +85,23 @@
           </ion-radio-group>
         </ion-list>
       </div>
-
-      <!-- Summary and Place Order Button -->
       <div class="summary">
         <p>Subtotal: P 185</p>
         <p>Delivery Charge: P 59</p>
         <h3>Grand Total: P 244</h3>
-        <ion-button expand="block" color="danger" @click="placeOrder"
+        <ion-button
+          expand="block"
+          color="danger"
+          @click="placeOrder"
+          id="open-toast"
           >Place Order</ion-button
         >
       </div>
+      <ion-toast
+        trigger="open-toast"
+        message="Your order has No.19034564 has been successfully processed. Kindly wait for our notification regarding your order."
+        :duration="5000"
+      ></ion-toast>
     </ion-content>
   </ion-page>
 </template>
@@ -117,13 +122,15 @@ import {
   IonCard,
   IonCardContent,
   IonItem,
+  IonText,
+  IonToast,
 } from "@ionic/vue";
 
 import { useRouter } from "vue-router";
 const router = useRouter();
 
 const placeOrder = () => {
-  router.push("/order-confirmation");
+  router.push("/folder/Home");
 };
 </script>
 
@@ -132,6 +139,7 @@ const placeOrder = () => {
   padding: 16px;
   background: #f4f4f4;
   margin-bottom: 10px;
+  color: black;
 }
 
 .order-items img {
@@ -154,5 +162,6 @@ const placeOrder = () => {
   padding: 16px;
   text-align: center;
   background: #f4f4f4;
+  color: black;
 }
 </style>
