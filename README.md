@@ -1,10 +1,25 @@
-Ionic
+A Fast Food Mobile Application
 
+Developer Examination attempt by Noel Angelo Cansino
+
+This Fast Food Mobile Application was created using Ionic by Capacitor via VueJS. 
+
+Ionic provides the UI components.
+Capacitor Framework provides the native connection and routing for the project.
+VueJS is the main library used.
+
+Instructions: 
+To run the application, run these lines in the terminal
+On the web:
 ionic serve
+
+On android:
 ionic cap add android
+ionic build
 ionic cap copy
 ionic cap sync
 ionic cap open android
+
 ionic cap run android -l --external
 
 
@@ -25,8 +40,7 @@ If you encountered this issue while running the android application, be sure to 
 
 ionic build
 
-Capacitor
-
+Install Capacitor:
 npm i @capacitor/app @capacitor/haptics @capacitor/keyboard @capacitor/status-bar
 ionic capacitor add android
 ionic capacitor add ios
