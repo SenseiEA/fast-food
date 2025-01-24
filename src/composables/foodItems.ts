@@ -1,0 +1,58 @@
+export const popularItems = [
+  {
+    name: "Steak Fries Veggies",
+    category: "Meat",
+    price: 175,
+    rating: 5,
+    image: "/steak-fries.webp",
+  },
+  {
+    name: "Chicken Salad",
+    category: "Chicken",
+    price: 172,
+    rating: 5,
+    image: "/chicken-salad.jpg",
+  },
+  {
+    name: "Sorvetes Primavera",
+    category: "Dessert",
+    price: 185,
+    rating: 5,
+    image: "/sorvetes.webp",
+  },
+  {
+    name: "Fried Chicken",
+    category: "Chicken",
+    price: 175,
+    rating: 5,
+    image: "/fried-chicken.webp",
+  },
+  {
+    name: "Steak Fries Veggies",
+    category: "Meat",
+    price: 175,
+    rating: 5,
+    image: "/steak-fries.webp",
+  },
+  {
+    name: "Chicken Salad",
+    category: "Chicken",
+    price: 172,
+    rating: 5,
+    image: "/chicken-salad.jpg",
+  },
+  {
+    name: "Sorvetes Primavera",
+    category: "Dessert",
+    price: 185,
+    rating: 5,
+    image: "/sorvetes.webp",
+  },
+  {
+    name: "Fried Chicken",
+    category: "Chicken",
+    price: 175,
+    rating: 5,
+    image: "/fried-chicken.webp",
+  },
+];
